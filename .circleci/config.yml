@@ -1,0 +1,43 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.8.0
+
+    working_directory: ~/repo
+
+    environment:
+      DB_URL: "mongodb://localhost:27017"
+      DB_NAME: "mongodb"
+      TOKEN: "faketoken"
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "requirements.txt" }}-
+          - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}-
+
+      - run:
+          name: run tests
+          command: |
+            . venv/bin/activate
+            python -m flake8 . --exclude=.git,__pycache__,venv
+            python -m unittest discover tests "*_test.py"
+workflows:
+  version: 2
+  stack:
+    jobs:
+      - build
