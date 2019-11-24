@@ -35,7 +35,7 @@ jobs:
           command: |
             . venv/bin/activate
             python -m flake8 . --exclude=.git,__pycache__,venv
-            python -m unittest discover tests "*_test.py"
+            python -m unittest discover code.tests "*_test.py"
 workflows:
   version: 2
   stack:
