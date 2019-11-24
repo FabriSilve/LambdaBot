@@ -10,6 +10,7 @@ jobs:
       DB_URL: "mongodb://localhost:27017"
       DB_NAME: "mongodb"
       TOKEN: "faketoken"
+      CODACY_PROJECT_TOKEN: "456ebbe09ea543de998aa9ce0890d14a"
 
     steps:
       - checkout
@@ -31,11 +32,18 @@ jobs:
           key: v1-dependencies-{{ checksum "requirements.txt" }}-
 
       - run:
-          name: run tests
+          name: run linter
           command: |
             . venv/bin/activate
             python -m flake8 . --exclude=.git,__pycache__,venv
-            python -m unittest discover code.tests "*_test.py"
+
+      - run:
+          name: run tests
+          command: |
+            . venv/bin/activate
+            coverage run --source=code/source -m pytest
+            coverage report -m
+            python-codacy-coverage -r coverage.xml
 workflows:
   version: 2
   stack:
