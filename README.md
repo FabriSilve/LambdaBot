@@ -1,0 +1,4 @@
+[![CircleCI](https://circleci.com/gh/FabriSilve/LambdaBot/tree/master.svg?style=svg)](https://circleci.com/gh/FabriSilve/LambdaBot/tree/master)
+[![codebeat badge](https://codebeat.co/badges/89e46975-18a7-4de3-824e-a7ecd69210e8)](https://codebeat.co/projects/github-com-fabrisilve-lambdabot-master)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/18b231f6602c44d098e12dc8b57d7d44)](https://www.codacy.com/manual/FabriSilve/LambdaBot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=FabriSilve/LambdaBot&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/18b231f6602c44d098e12dc8b57d7d44)](https://www.codacy.com/manual/FabriSilve/LambdaBot?utm_source=github.com&utm_medium=referral&utm_content=FabriSilve/LambdaBot&utm_campaign=Badge_Coverage)
