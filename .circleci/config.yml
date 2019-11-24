@@ -35,7 +35,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            # python -m flake8 . --exclude=.git,__pycache__,venv
+            python -m flake8 . --exclude=.git,__pycache__,venv
             coverage run --source=code/source -m pytest
             coverage report -m
             coverage xml
