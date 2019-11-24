@@ -32,17 +32,13 @@ jobs:
           key: v1-dependencies-{{ checksum "requirements.txt" }}-
 
       - run:
-          name: run linter
-          command: |
-            . venv/bin/activate
-            python -m flake8 . --exclude=.git,__pycache__,venv
-
-      - run:
           name: run tests
           command: |
             . venv/bin/activate
+            # python -m flake8 . --exclude=.git,__pycache__,venv
             coverage run --source=code/source -m pytest
             coverage report -m
+            coverage xml
             python-codacy-coverage -r coverage.xml
 workflows:
   version: 2
