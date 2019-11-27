@@ -1,9 +1,10 @@
 import re
 
 
-class Answer:
-    def __init__(self, key):
+class Handler:
+    def __init__(self, key, answer):
         self.key = key
+        self.answer = answer
 
     def match(self, text):
         search_result = re \
@@ -13,3 +14,6 @@ class Answer:
             ) \
             .search(text)
         return False if search_result is None else True
+
+    def getAnswer(self, args=None):
+        return self.answer.get(args)
