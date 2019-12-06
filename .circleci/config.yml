@@ -88,7 +88,7 @@ jobs:
 
       - run:
           name: Run deployment script
-          command: chalice deploy
+          command: python -m chalice deploy
 
 workflows:
   version: 2
