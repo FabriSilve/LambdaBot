@@ -5,7 +5,7 @@ app = Chalice(app_name='lambda-bot')
 
 @app.route('/')
 def index():
-    return {'hello': 'world'}
+    return {'hello': 'automatic world'}
 
 
 # The view function above will return {"hello": "world"}
