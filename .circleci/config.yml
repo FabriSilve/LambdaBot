@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/python:3.8.0
+      - image: circleci/python:3.7.0
 
     working_directory: ~/repo
 
@@ -58,7 +58,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/python:3.8.0
+      - image: circleci/python:3.7.0
 
     working_directory: ~/repo
 
@@ -88,7 +88,9 @@ jobs:
 
       - run:
           name: Run deployment script
-          command: chalice deploy
+          command: |
+            . venv/bin/activate
+            chalice deploy
 
 workflows:
   version: 2
