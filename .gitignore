@@ -1,8 +1,12 @@
 *.pyc
 *.swp
 *.swo
+
 .DS_Store
 .coverage
 coverage.xml
+
+.pytest_cache
+
 .chalice/deployments/
 .chalice/venv/
