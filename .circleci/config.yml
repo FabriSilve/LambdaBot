@@ -17,7 +17,7 @@ jobs:
 
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "requirements.txt" }}-
+          - v1-dependencies-{{ checksum "requirements.txt" }}
           - v1-dependencies-
 
       - run:
@@ -29,7 +29,7 @@ jobs:
       - save_cache:
           paths:
             - ./venv
-          key: v1-dependencies-{{ checksum "requirements.txt" }}-
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       - run:
           name: run linter
@@ -56,8 +56,49 @@ jobs:
             coverage xml
             python-codacy-coverage -r coverage.xml
 
+  deploy:
+    docker:
+      - image: circleci/python:3.8.0
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "requirements.txt" }}
+          - v1-dependencies-
+
+      - run:
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements.txt
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+
+      - run:
+          name: Set up AWS Profile
+          command: mkdir ~/.aws && echo -e "[profile Moank]\naws_access_key_id=$AWS_ACCESS_KEY_ID\naws_secret_access_key=$AWS_SECRET_ACCESS_KEY\n" > ~/.aws/config
+
+      - run:
+          name: Run deployment script
+          command: chalice deploy
+
 workflows:
   version: 2
   stack:
     jobs:
       - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
