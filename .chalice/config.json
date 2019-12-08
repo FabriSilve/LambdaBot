@@ -3,7 +3,8 @@
     "dev": {
       "api_gateway_stage": "api",
       "environment_variables": {
-        "TOKEN": "673701265:AAEPejhyMoZccQfil5C3TSgr20gaaiO_V0U"
+        "TOKEN": "673701265:AAEPejhyMoZccQfil5C3TSgr20gaaiO_V0U",
+        "ENV": "production"
       }
     }
   },
