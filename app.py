@@ -1,29 +1,28 @@
 from chalice import Chalice
+import requests
+import os
 
 app = Chalice(app_name='lambda-bot')
 
+TOKEN = os.environ['TOKEN']
+BASE_URL = "https://api.telegram.org/bot{}".format(TOKEN)
 
-@app.route('/')
+
+@app.route('/', methods=['POST'])
 def index():
-    return {'hello': 'automatic world'}
+    body = app.current_request.json_body
 
+    message = str(body["message"]["text"])
+    chat_id = body["message"]["chat"]["id"]
+    first_name = body["message"]["chat"]["first_name"]
 
-# The view function above will return {"hello": "world"}
-# whenever you make an HTTP GET request to '/'.
-#
-# Here are a few more examples:
-#
-# @app.route('/hello/{name}')
-# def hello_name(name):
-#    # '/hello/james' -> {"hello": "james"}
-#    return {'hello': name}
-#
-# @app.route('/users', methods=['POST'])
-# def create_user():
-#     # This is the JSON body the user sent in their POST request.
-#     user_as_json = app.current_request.json_body
-#     # We'll echo the json body back to the user in a 'user' key.
-#     return {'user': user_as_json}
-#
-# See the README documentation for more examples.
-#
+    response = "Please /start, {}".format(first_name)
+
+    if "start" in message:
+        response = "Hello {}".format(first_name)
+
+    data = {"text": response.encode("utf8"), "chat_id": chat_id}
+    url = BASE_URL + "/sendMessage"
+    requests.post(url, json=data)
+
+    return {"statusCode": 200, "body": "ok"}
