@@ -1,5 +1,5 @@
 import unittest
-from source.example import simple_method
+from chalicelib.example import simple_method
 
 
 class MyTest(unittest.TestCase):

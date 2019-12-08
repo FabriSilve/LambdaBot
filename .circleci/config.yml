@@ -41,7 +41,7 @@ jobs:
           name: run tests
           command: |
             . venv/bin/activate
-            coverage run --source=source -m pytest
+            coverage run --source=chalicelib -m pytest
 
       - run:
           name: check tests coverage
