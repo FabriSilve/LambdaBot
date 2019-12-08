@@ -1,5 +1,5 @@
 import unittest
-from code.source.example import simple_method
+from source.example import simple_method
 
 
 class MyTest(unittest.TestCase):
