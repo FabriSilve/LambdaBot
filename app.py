@@ -25,7 +25,7 @@ def index():
         data = {"text": response.encode("utf8"), "chat_id": chat_id}
         url = BASE_URL + "/sendMessage"
         requests.post(url, json=data)
-    except:
-      print('Error handling telegram message')
+    except:  # noqa: E722
+        print('Error handling telegram message')
 
     return {"statusCode": 200, "body": "ok"}
