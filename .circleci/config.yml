@@ -90,7 +90,7 @@ jobs:
           name: Run deployment script
           command: |
             . venv/bin/activate
-            chalice deploy
+            chalice deploy --stage dev
 
 workflows:
   version: 2
