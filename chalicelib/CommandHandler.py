@@ -1,4 +1,4 @@
-from re import compile, IGNORECASE
+import re
 
 from chalicelib.Handler import Handler
 
@@ -14,10 +14,10 @@ class CommandHandler(Handler):
             raise AssertionError
 
         self.key = key
-        self.regex = compile(self.REGEX.format(key, key), IGNORECASE)
+        self.regex = re.compile(self.REGEX.format(key, key), re.IGNORECASE)
         super().__init__(answer)
 
     def match(self, message):
         if message is None:
             return False
-        return self.regex.match(message.text)
+        return self.regex.match(message.text) is not None

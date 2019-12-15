@@ -4,8 +4,10 @@ class Handler():
             raise AssertionError
         self.answer = answer
 
-    def match(self, message=None):
-        pass
+    def match(self, message):
+        if (message is None) or (not self.answer):
+            return False
+        return False
 
-    def send(self, message=None):
+    def send(self, message):
         self.answer.send(message)
