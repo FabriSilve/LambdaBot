@@ -26,6 +26,13 @@ class HandlerTest(TestCase):
 
         answer_mock.send.assert_not_called()
 
+    def test_abstract_handler_match_with_no_answer(self):
+        handler = Handler('')
+
+        text = 'not triggered'
+
+        self.assertFalse(handler.match(text))
+
     def test_send_answer_response(self):
         answer_mock = Mock()
         answer_mock.send.return_value = None
@@ -36,6 +43,7 @@ class HandlerTest(TestCase):
 
         handler.send(text)
 
+        self.assertIs(handler.answer, answer_mock)
         answer_mock.send.assert_called_with(text)
 
     def test_raise_error_if_answer_is_none(self):
