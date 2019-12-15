@@ -8,5 +8,4 @@ app = Chalice(app_name='lambda-bot')
 @app.route('/', methods=['POST'])
 def index():
     body = app.current_request.json_body
-    process_request(body)
-    return {"statusCode": 200, "body": "ok"}
+    return process_request(body)
