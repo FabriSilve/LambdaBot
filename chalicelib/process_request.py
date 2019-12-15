@@ -24,3 +24,5 @@ def process_request(body):
         print('LOG:', data)
     else:
         requests.post(url, json=data)
+
+    return {"statusCode": 200, "body": "ok"}
