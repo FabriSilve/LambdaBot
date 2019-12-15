@@ -5,15 +5,15 @@ class Answer():
     AUDIO = 'audio'
     IMAGE = 'image'
 
-    def __init__(self, answer_type, value):
-        if not answer_type:
+    def __init__(self, answer_type=None, value=None):
+        if answer_type is None:
             raise AssertionError
         if not isinstance(answer_type, str):
             raise AssertionError
         if answer_type not in [self.AUDIO, self.TEXT, self.IMAGE]:
             raise AssertionError
 
-        if not value:
+        if value is None:
             raise AssertionError
         if not isinstance(value, str):
             raise AssertionError
@@ -22,6 +22,3 @@ class Answer():
 
         self.answer_type = answer_type
         self.value = value
-
-    def send(self):
-        pass

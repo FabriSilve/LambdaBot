@@ -41,7 +41,7 @@ class AnswerTest(TestCase):
             AssertionError,
             Answer,
             'test',
-            '',
+            'ciao',
         )
 
     def test_throw_error_if_value_not_defined(self):
@@ -54,7 +54,7 @@ class AnswerTest(TestCase):
 
     def test_throw_error_if_value_parameter_is_missing(self):
         self.assertRaises(
-            TypeError,
+            AssertionError,
             Answer,
             Answer.TEXT,
         )
@@ -65,4 +65,12 @@ class AnswerTest(TestCase):
             Answer,
             Answer.TEXT,
             33,
+        )
+
+    def test_throw_error_if_value_is_empty_string(self):
+        self.assertRaises(
+            AssertionError,
+            Answer,
+            Answer.TEXT,
+            '',
         )
