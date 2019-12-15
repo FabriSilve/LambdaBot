@@ -52,12 +52,12 @@ pip(3) install -r requirements.txt
 ---
 
 ### Pull requests rules
--  All commits have to be signed
--  All pull requests need a code owner review
--  All pull request need to be rebased on the last `master` version before merge them
--  All pull request have to pass tests and quality code check
--  The `master` branch need to keep code coverage over **85%**
--  The `master` branch need to keep code quality **A**
+- All commits have to be signed
+- All pull requests need a code owner review
+- All pull request need to be rebased on the last `master` version before merge them
+- All pull request have to pass tests and quality code check
+- The `master` branch need to keep code coverage over **85%**
+- The `master` branch need to keep code quality **A**
 
 ---
 
