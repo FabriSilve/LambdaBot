@@ -11,7 +11,7 @@
       "api_gateway_stage": "api",
       "environment_variables": {
         "TOKEN": "12345",
-        "ENV": "test"
+        "ENV": "local"
       }
     }
   },

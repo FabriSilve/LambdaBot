@@ -20,7 +20,7 @@ def process_request(body):
     data = {"text": response.encode("utf8"), "chat_id": chat_id}
     url = BASE_URL + "/sendMessage"
 
-    if ENV == 'production':
-        requests.post(url, json=data)
-    else:
+    if ENV == 'local':
         print('LOG:', data)
+    else:
+        requests.post(url, json=data)
