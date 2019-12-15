@@ -6,7 +6,7 @@
 # Lambda Telegram Bot
 > AWS Lambda Telegram Bot
 
---- 
+---
 
 ## Development
 
@@ -14,31 +14,37 @@
 > Install python 3 locally
 
 With Homebrew:
+
 ```sh
 brew install python3
 ```
 
 With Pacman
+
 ```sh
 pacman -S python-pip
 ```
 
 > Create virtual environment
+
 ```sh
 python(3) -m venv <path/envirnoment>
 ```
 
 > Activate virtual environment from inside environment directory
+
 ```sh
 source bin/activate
 ```
 
 > Clone git repository
+
 ```sh
 git clone <repo-url>
 ```
 
 > Install dependency from inside project directory
+
 ```sh
 pip(3) install -r requirements.txt
 ```
@@ -46,14 +52,14 @@ pip(3) install -r requirements.txt
 ---
 
 ### Pull requests rules
-- All commits have to be signed
-- All pull requests need a code owner review
-- All pull request need to be rebased on the last `master` version before merge them
-- All pull request have to pass tests and quality code check
-- The `master` branch need to keep code coverage over **85%**
-- The `master` branch need to keep code quality **A**
+-  All commits have to be signed
+-  All pull requests need a code owner review
+-  All pull request need to be rebased on the last `master` version before merge them
+-  All pull request have to pass tests and quality code check
+-  The `master` branch need to keep code coverage over **85%**
+-  The `master` branch need to keep code quality **A**
 
 ---
 
 ### Deploy
-- The lambda is automatically deployed when a pull request is merged on the `master` branch
+> The lambda is automatically deployed when a pull request is merged on the `master` branch
