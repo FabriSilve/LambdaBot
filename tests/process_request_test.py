@@ -54,3 +54,19 @@ class ProcessRequestTEstTest(unittest.TestCase):
 
         self.assertEqual(result['statusCode'], 200)
         self.assertEqual(result['body'], 'ok')
+
+    @patch('requests.post')
+    def test_http_request_not_done_if_local(self, mock_requests):
+        result = process_request({
+            "message": {
+                "text": "/start",
+                "chat": {
+                    "id": "123",
+                    "first_name": "Test"
+                }
+            }
+        }, False)
+        mock_requests.assert_not_called()
+
+        self.assertEqual(result['statusCode'], 200)
+        self.assertEqual(result['body'], 'ok')
