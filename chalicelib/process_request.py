@@ -2,12 +2,12 @@ import requests
 import os
 
 TOKEN = os.environ.get('TOKEN', 'token')
-ENV = os.environ.get('ENV', 'test')
+
 
 BASE_URL = "https://api.telegram.org/bot{}".format(TOKEN)
 
 
-def process_request(body):
+def process_request(body, can_send=True):
     message = str(body["message"]["text"])
     chat_id = body["message"]["chat"]["id"]
     first_name = body["message"]["chat"]["first_name"]
@@ -20,9 +20,9 @@ def process_request(body):
     data = {"text": response.encode("utf8"), "chat_id": chat_id}
     url = BASE_URL + "/sendMessage"
 
-    if ENV == 'local':
-        print('LOG:', data)
-    else:
+    if can_send:
         requests.post(url, json=data)
+    else:
+        print('LOG:', data)
 
     return {"statusCode": 200, "body": "ok"}
