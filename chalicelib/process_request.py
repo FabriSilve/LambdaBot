@@ -24,7 +24,7 @@ def process_request(body, can_send=True):
     if can_send:
         try:
             requests.post(url, json=data)
-        except:
+        except:  # noqa: E722
             print('Exception received', url, data)
     else:
         print('LOG:', data)
