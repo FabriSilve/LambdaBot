@@ -8,6 +8,7 @@ BASE_URL = "https://api.telegram.org/bot{}".format(TOKEN)
 
 
 def process_request(body, can_send=True):
+    print(body)
     message = str(body["message"]["text"])
     chat_id = body["message"]["chat"]["id"]
     first_name = body["message"]["chat"]["first_name"]
