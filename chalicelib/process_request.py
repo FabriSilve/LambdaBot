@@ -11,7 +11,7 @@ def process_request(body, can_send=True):
     print(body)
     chat_id = body["message"]["chat"]["id"]
     message = str(body["message"]["text"])
-    first_name = body["message"]["chat"]["first_name"]
+    first_name = body["message"]["from"]["first_name"]
 
     response = "Please /start, {}".format(first_name)
 
