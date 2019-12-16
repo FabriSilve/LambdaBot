@@ -15,10 +15,8 @@ class ProcessRequestTEstTest(unittest.TestCase):
         result = process_request({
             "message": {
                 "text": "ciao",
-                "chat": {
-                    "id": "123",
-                    "first_name": "Test"
-                }
+                "chat": {"id": "123"},
+                "from": {"first_name": "Test"}
             }
         })
         mock_requests.assert_called()
@@ -37,10 +35,8 @@ class ProcessRequestTEstTest(unittest.TestCase):
         result = process_request({
             "message": {
                 "text": "/start",
-                "chat": {
-                    "id": "123",
-                    "first_name": "Test"
-                }
+                "chat": {"id": "123"},
+                "from": {"first_name": "Test"}
             }
         })
         mock_requests.assert_called()
@@ -60,10 +56,8 @@ class ProcessRequestTEstTest(unittest.TestCase):
         result = process_request({
             "message": {
                 "text": "/start",
-                "chat": {
-                    "id": "123",
-                    "first_name": "Test"
-                }
+                "chat": {"id": "123"},
+                "from": {"first_name": "Test"}
             }
         }, False)
         mock_requests.assert_not_called()

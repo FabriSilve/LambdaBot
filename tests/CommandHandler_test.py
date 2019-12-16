@@ -53,7 +53,8 @@ class CommandHandlerTest(TestCase):
         message = Message({
             "message": {
                 "text": "ciao",
-                "chat": {"id": "123", "first_name": "Test"}
+                "chat": {"id": "123"},
+                "from": {"first_name": "Test"}
             }
         })
 
@@ -69,7 +70,8 @@ class CommandHandlerTest(TestCase):
         message = Message({
             "message": {
                 "text": "/key",
-                "chat": {"id": "123", "first_name": "Test"}
+                "chat": {"id": "123"},
+                "from": {"first_name": "Test"}
             }
         })
 
@@ -86,7 +88,8 @@ class CommandHandlerTest(TestCase):
         message = Message({
             "message": {
                 "text": "/keyya",
-                "chat": {"id": "123", "first_name": "Test"}
+                "chat": {"id": "123"},
+                "from": {"first_name": "Test"}
             }
         })
 
@@ -102,7 +105,8 @@ class CommandHandlerTest(TestCase):
         message = Message({
             "message": {
                 "text": "/key is working",
-                "chat": {"id": "123", "first_name": "Test"}
+                "chat": {"id": "123"},
+                "from": {"first_name": "Test"}
             }
         })
 
@@ -118,7 +122,8 @@ class CommandHandlerTest(TestCase):
         message = Message({
             "message": {
                 "text": "Hi /key command",
-                "chat": {"id": "123", "first_name": "Test"}
+                "chat": {"id": "123"},
+                "from": {"first_name": "Test"}
             }
         })
 
@@ -134,7 +139,8 @@ class CommandHandlerTest(TestCase):
         message = Message({
             "message": {
                 "text": "/KeY is working",
-                "chat": {"id": "123", "first_name": "Test"}
+                "chat": {"id": "123"},
+                "from": {"first_name": "Test"}
             }
         })
 
