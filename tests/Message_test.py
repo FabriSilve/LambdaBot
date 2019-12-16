@@ -9,10 +9,8 @@ class MessageTest(TestCase):
         request = {
             "message": {
                 "text": "ciao",
-                "chat": {
-                    "id": "123",
-                    "first_name": "Test"
-                }
+                "chat": {"id": "123"},
+                "from": {"first_name": "Test"}
             }
         }
         message = Message(request)
