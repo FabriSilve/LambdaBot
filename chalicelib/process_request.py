@@ -19,7 +19,7 @@ def process_request(body, can_send=True):
         if "start" in message:
             response = "Hello {}".format(first_name)
 
-        data = {"text": response.encode("utf8"), "chat_id": chat_id}
+        data = {"text": response, "chat_id": chat_id}
         url = BASE_URL + "/sendMessage"
 
         if can_send:
