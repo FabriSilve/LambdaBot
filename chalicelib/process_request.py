@@ -22,7 +22,10 @@ def process_request(body, can_send=True):
     url = BASE_URL + "/sendMessage"
 
     if can_send:
-        requests.post(url, json=data)
+        try:
+            requests.post(url, json=data)
+        except:
+            print('Exception received', url, data)
     else:
         print('LOG:', data)
 
