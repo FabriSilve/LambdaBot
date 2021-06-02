@@ -3,5 +3,5 @@ coverage==4.5.4
 flake8==3.7.9
 pytest==4.6.6
 requests==2.22.0
-urllib3==1.25.7
+urllib3==1.26.5
 chalice==1.12.0
